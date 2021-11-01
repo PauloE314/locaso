@@ -1,14 +1,24 @@
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
+import { useState } from "react";
+import data from "../../config/products.json";
 
-import { Container, Content } from "./styles";
+import Product from "./Product";
+import Sidebar from "./Sidebar";
+import Search from "./Search";
+
+import { Container, ProductList } from "./styles";
 
 export default function Home() {
+  const [productList, setProductList] = useState(data);
+
   return (
     <Container>
-      <Navbar />
-      <Content>Home</Content>
-      <Footer />
+      <Sidebar></Sidebar>
+      <Search></Search>
+      <ProductList>
+        {productList.map(({ name, image, price }, id) => (
+          <Product key={id} name={name} image={image} price={price} />
+        ))}
+      </ProductList>
     </Container>
   );
 }

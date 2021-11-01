@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { breakPoints } from "../../style";
+import { breakPoints } from "../../config";
 
 export const Container = styled.div`
   display: flex;
@@ -8,13 +8,13 @@ export const Container = styled.div`
   position: relative;
   padding: 2rem 4rem;
   background-color: var(--bg-color);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
 
-  @media (max-width: ${breakPoints.small}) {
+  @media screen and (max-width: ${breakPoints.small}) {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding: 2rem 2rem;
   }
-
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
 `;
 
 export const Logo = styled.h1`
@@ -30,7 +30,7 @@ export const MenuButton = styled.button`
   opacity: ${({ activated }) => (activated ? 0.5 : 1)};
   transition: opacity 0.3s;
 
-  @media (max-width: ${breakPoints.small}) {
+  @media screen and (max-width: ${breakPoints.small}) {
     display: block;
   }
 `;
@@ -40,7 +40,7 @@ export const Menu = styled.div`
   overflow: hidden;
   transition: max-height 0.3s;
 
-  @media (max-width: ${breakPoints.small}) {
+  @media screen and (max-width: ${breakPoints.small}) {
     display: flex;
     flex-direction: column;
     max-height: ${({ show }) => (show ? "6.5rem" : "0")};
@@ -60,7 +60,7 @@ export const MenuItem = styled(Link)`
 
   @media (max-width: ${breakPoints.small}) {
     margin-left: 0rem;
-    padding-top: 2rem;
+    padding: 1rem 0;
   }
 `;
 

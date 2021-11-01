@@ -1,9 +1,5 @@
-import Navbar from "../../components/Navbar";
+import { Container } from "./styles";
 
 export default function About() {
-  return (
-    <div>
-      <Navbar />
-    </div>
-  );
+  return <Container>about</Container>;
 }

@@ -7,4 +7,9 @@ const config = {
   },
 };
 
+export const breakPoints = {
+  small: "700px",
+  medium: "1000px",
+};
+
 export default config;

@@ -1,9 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-
-export const breakPoints = {
-  small: "700px",
-  medium: "1000px",
-};
+import { breakPoints } from "./config";
 
 const globalStyle = createGlobalStyle`
   :root {
@@ -19,9 +15,12 @@ const globalStyle = createGlobalStyle`
     }
   }
 
+  
   * {
     margin: 0;
+    padding: 0;
     list-style: none;
+    -webkit-tap-highlight-color: transparent;
   }
   
   body {

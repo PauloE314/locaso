@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakPoints } from "../../config";
 
 export const Container = styled.div`
   display: grid;
@@ -10,15 +11,21 @@ export const Container = styled.div`
   background-color: var(--secondary-color);
   color: var(--bg-color);
 
-  font-size: 1.1rem;
+  @media screen and (max-width: ${breakPoints.small}) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "logo contact"
+      "location contact";
+  }
 `;
 
 export const Logo = styled.h2`
   grid-area: logo;
   margin-bottom: 0.5rem;
+  font-size: 1.6rem;
 `;
 
-export const Location = styled.div`
+export const Location = styled.small`
   grid-area: location;
 `;
 
@@ -33,6 +40,11 @@ export const ContactItem = styled.li`
 
   & svg {
     margin-right: 1rem;
+  }
+
+  @media screen and (max-width: ${breakPoints.small}) {
+    margin: 0.7rem 0rem;
+    font-size: 0.9rem;
   }
 `;
 

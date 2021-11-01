@@ -1,4 +1,7 @@
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import PageContainer from "./components/PageContainer";
 
 import About from "./pages/About";
 import Home from "./pages/Home";
@@ -8,13 +11,25 @@ import Product from "./pages/Product";
 function App() {
   return (
     <BrowserRouter>
-      <Switch>
-        <Route path="/" exact children={Home} />
-        <Route path="/product/:id" exact children={Product} />
-        <Route path="/about" exact children={About} />
-        <Route path="/404" children={NotFound} />
-        <Redirect to="/404" />
-      </Switch>
+      <PageContainer>
+        <Navbar />
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/product/:id" exact>
+            <Product />
+          </Route>
+          <Route path="/about" exact>
+            <About />
+          </Route>
+          <Route path="/404">
+            <NotFound />
+          </Route>
+          <Redirect to="/404" />
+        </Switch>
+        <Footer />
+      </PageContainer>
     </BrowserRouter>
   );
 }

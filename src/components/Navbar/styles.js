@@ -26,7 +26,7 @@ export const MenuButton = styled.button`
   display: none;
   justify-self: flex-end;
   background-color: transparent;
-  font-size: 2rem;
+  font-size: 1.7rem;
   opacity: ${({ activated }) => (activated ? 0.5 : 1)};
   transition: opacity 0.3s;
 

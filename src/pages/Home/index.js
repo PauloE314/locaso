@@ -1,14 +1,14 @@
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
-import { Container } from "./styles";
+import { Container, Content } from "./styles";
 
 export default function Home() {
   return (
     <Container>
       <Navbar />
-      <main>Home</main>
-      {/* <Footer /> */}
+      <Content>Home</Content>
+      <Footer />
     </Container>
   );
 }

@@ -4,7 +4,7 @@ import { money } from "../../../utils";
 
 export default function Product({ name, image, price }) {
   return (
-    <Container>
+    <Container title={name}>
       <Image src={image} alt={name} />
       <Name>{name}</Name>
       <Price>{money(price)}</Price>

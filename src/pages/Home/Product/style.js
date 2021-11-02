@@ -5,9 +5,16 @@ export const Container = styled.li`
   display: flex;
 
   flex-direction: column;
-  border-radius: 0.2rem;
+  border-radius: 1rem;
+  border: 0.2rem solid transparent;
   padding: 1.5rem;
   background-color: white;
+  cursor: pointer;
+  transition: border 0.1s;
+
+  :hover {
+    border: 0.2rem solid var(--secondary-color);
+  }
 
   @media screen and (max-width: ${breakPoints.small}) {
     margin-bottom: 1rem;

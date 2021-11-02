@@ -6,31 +6,31 @@ export const Container = styled.div`
   grid-template-columns: 0.75fr auto 1fr auto 0.8fr;
   padding: 2rem 3rem;
   grid-template-areas:
-    ". logo . contact ."
-    ". location . contact .";
+    ". footer-logo . footer-contact ."
+    ". footer-location . footer-contact .";
   background-color: var(--secondary-color);
   color: var(--bg-color);
 
   @media screen and (max-width: ${breakPoints.small}) {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
-      "logo contact"
-      "location contact";
+      "footer-logo footer-contact"
+      "footer-location footer-contact";
   }
 `;
 
 export const Logo = styled.h2`
-  grid-area: logo;
+  grid-area: footer-logo;
   margin-bottom: 0.5rem;
   font-size: 1.6rem;
 `;
 
 export const Location = styled.small`
-  grid-area: location;
+  grid-area: footer-location;
 `;
 
 export const Contact = styled.ul`
-  grid-area: contact;
+  grid-area: footer-contact;
 `;
 
 export const ContactItem = styled.li`

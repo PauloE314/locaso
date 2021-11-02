@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
@@ -9,13 +10,15 @@ import NotFound from "./pages/NotFound";
 import Product from "./pages/Product";
 
 function App() {
+  const [search, setSearch] = useState("");
+
   return (
     <BrowserRouter>
       <PageContainer>
-        <Navbar />
+        <Navbar onSearch={setSearch} />
         <Switch>
           <Route path="/" exact>
-            <Home />
+            <Home search={search} />
           </Route>
           <Route path="/product/:id" exact>
             <Product />

@@ -4,6 +4,7 @@ import { breakPoints } from "../../config";
 
 export const Container = styled(PageContent)`
   padding: 5rem;
+
   @media screen and (max-width: ${breakPoints.small}) {
     padding: 0.8rem;
   }

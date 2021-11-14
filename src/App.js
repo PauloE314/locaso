@@ -1,5 +1,11 @@
-import { useState } from "react";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { useState, useEffect } from "react";
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Redirect,
+  useLocation,
+} from "react-router-dom";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import PageContainer from "./components/PageContainer";

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   AiOutlineMenu,
   AiFillHome,
@@ -6,7 +6,7 @@ import {
   AiOutlineSearch,
   AiOutlineClose,
 } from "react-icons/ai";
-import { useLocation } from "react-router";
+import { useLocation, useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import {
   Container,
@@ -25,12 +25,19 @@ export default function Navbar({ onSearch }) {
   const [showMenu, setShowMenu] = useState(false);
   const [searchContent, setSearchContent] = useState("");
   const location = useLocation();
+  const history = useHistory();
+
+  const search = (content) => {
+    onSearch(content);
+
+    if (location.pathname !== "/") history.push("/");
+  };
 
   const toggleMenu = () => setShowMenu(!showMenu);
 
   const handleChange = (e) => setSearchContent(e.target.value);
   const handleKeyDown = (e) => {
-    if (e.key === "Enter") onSearch(searchContent);
+    if (e.key === "Enter") search(searchContent);
   };
   const handleSearchIconClick = () => {
     if (searchContent.length) {

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakPoints } from "../../../config";
 
 export const Container = styled.ul`
   display: flex;
@@ -11,6 +12,20 @@ export const Container = styled.ul`
 
   & > *:last-child {
     margin-right: 0;
+  }
+
+  @media screen and (max-width: ${breakPoints.small}) {
+    flex-direction: column;
+    padding: 2rem;
+
+    & > * {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    & > *:last-child {
+      margin-bottom: 0;
+    }
   }
 `;
 
@@ -43,6 +58,11 @@ export const CategorySelect = styled.select`
   :hover {
     background-color: var(--secondary-color);
     color: white;
+  }
+
+  @media screen and (max-width: ${breakPoints.small}) {
+    width: 100%;
+    margin: 0.5rem;
   }
 `;
 

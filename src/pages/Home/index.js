@@ -2,16 +2,20 @@ import { useEffect, useState } from "react";
 import all from "../../config/products.json";
 
 import Product from "./Product";
-import Filter from "./Filter";
+import Filters from "./Filters";
 
 import { Container, ProductList, NotFound, ResultAmount } from "./styles";
 
+const searchingMessage = (amount) => {
+  if (amount > 1) return `${amount} items encontrados!!`;
+  else if (amount === 1) return "1 item encontrado!!";
+  return undefined;
+};
+
 export default function Home({ search }) {
   const [productList, setProductList] = useState(all);
-  const message =
-    productList.length !== 1
-      ? `${productList.length} items encontrados!!`
-      : "1 item encontrado!!";
+  const found = !!productList.length;
+  const message = searchingMessage(productList.length);
 
   useEffect(() => {
     const pattern = new RegExp("^" + search.toLowerCase());
@@ -24,7 +28,7 @@ export default function Home({ search }) {
 
   return (
     <Container>
-      {productList.length ? (
+      {found ? (
         <>
           <ResultAmount>{message}</ResultAmount>
           <ProductList>

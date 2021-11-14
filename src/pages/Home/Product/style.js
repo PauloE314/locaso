@@ -3,6 +3,8 @@ import { breakPoints } from "../../../config";
 
 export const Container = styled.li`
   display: flex;
+  min-width: 15rem;
+  max-width: 25rem;
 
   flex-direction: column;
   border-radius: 1rem;
@@ -18,6 +20,9 @@ export const Container = styled.li`
 
   @media screen and (max-width: ${breakPoints.small}) {
     margin-bottom: 1rem;
+    max-width: 100%;
+    min-width: 0%;
+    width: 100%;
   }
 `;
 
@@ -34,7 +39,7 @@ export const Price = styled(Name)`
 
 export const Image = styled.img`
   align-self: center;
-  width: 12rem;
+  width: 100%;
 
   @media screen and (max-width: ${breakPoints.small}) {
     width: 70%;

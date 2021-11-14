@@ -4,6 +4,7 @@ import {
   AiFillHome,
   AiOutlineUser,
   AiOutlineSearch,
+  AiOutlineClose,
 } from "react-icons/ai";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
@@ -16,23 +17,30 @@ import {
   MenuLinkLabel,
   Search,
   SearchInput,
-  SearchButton,
+  SearchIcon,
 } from "./styles";
 
 export default function Navbar({ onSearch }) {
   const searchRef = useRef(null);
   const [showMenu, setShowMenu] = useState(false);
+  const [searchContent, setSearchContent] = useState("");
   const location = useLocation();
 
   const toggleMenu = () => setShowMenu(!showMenu);
 
+  const handleChange = (e) => setSearchContent(e.target.value);
   const handleKeyDown = (e) => {
-    if (e.key === "Enter") onSearch(e.target.value);
+    if (e.key === "Enter") onSearch(searchContent);
+  };
+  const handleSearchIconClick = () => {
+    if (searchContent.length) {
+      searchRef.current.value = "";
+      setSearchContent("");
+    }
   };
 
-  const handleSearchClick = () => {
-    onSearch(searchRef.current.value);
-  };
+  const searchBarIcon =
+    searchContent.length === 0 ? <AiOutlineSearch /> : <AiOutlineClose />;
 
   return (
     <Container>
@@ -47,10 +55,9 @@ export default function Navbar({ onSearch }) {
           ref={searchRef}
           placeholder="O que deseja hoje?"
           onKeyDown={handleKeyDown}
+          onChange={handleChange}
         />
-        <SearchButton onClick={handleSearchClick}>
-          <AiOutlineSearch />
-        </SearchButton>
+        <SearchIcon onClick={handleSearchIconClick}>{searchBarIcon}</SearchIcon>
       </Search>
       <Menu show={showMenu}>
         <MenuLink to="/" selected={location.pathname === "/"}>

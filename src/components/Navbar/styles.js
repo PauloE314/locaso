@@ -111,7 +111,7 @@ export const SearchInput = styled.input`
   outline: none;
 `;
 
-export const SearchButton = styled.button`
+export const SearchIcon = styled.button`
   font-size: 1.5em;
   color: var(--secondary-color);
   font-weight: bold;

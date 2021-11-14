@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import all from "../../config/products.json";
+import all from "../../config/products";
 
 import Product from "./Product";
 import Filters from "./Filters";

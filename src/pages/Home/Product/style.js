@@ -7,6 +7,7 @@ export const Container = styled.li`
   max-width: 25rem;
 
   flex-direction: column;
+  justify-content: flex-end;
   border-radius: 1rem;
   border: 0.2rem solid transparent;
   padding: 1.5rem;
@@ -39,6 +40,8 @@ export const Price = styled(Name)`
 
 export const Image = styled.img`
   align-self: center;
+  flex: 1;
+  object-fit: contain;
   width: 100%;
 
   @media screen and (max-width: ${breakPoints.small}) {

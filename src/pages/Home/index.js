@@ -37,9 +37,11 @@ const findProducts = (search, category, order) => {
 export default function Home({ search }) {
   const [filterConfig, setFilterConfig] = useState({
     category: "",
-    order: "expensive",
+    order: "dec",
   });
-  const [productList, setProductList] = useState(all);
+  const [productList, setProductList] = useState(
+    findProducts(search, "", "expensive")
+  );
   const found = !!productList.length;
   const message = searchingMessage(productList.length);
 

@@ -2,6 +2,7 @@ import SecadorImage from "../images/secador.jpg";
 
 const products = [
   {
+    id: 1,
     name: "Secador de cabelo original",
     url: "google.com",
     price: "12,00",
@@ -12,6 +13,7 @@ const products = [
       "https://jcsbrasil.vteximg.com.br/arquivos/ids/174049-1000-1000/SEC530-01-copiar.jpg?v=637216276936700000",
   },
   {
+    id: 2,
     name: "Secador de cabelo deferente",
     url: "google.com",
     price: "14,00",
